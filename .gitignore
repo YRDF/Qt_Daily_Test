@@ -34,5 +34,6 @@
 Debug
 .vs
 Release
+build
 */*build-wxclient*/
 node_modules
