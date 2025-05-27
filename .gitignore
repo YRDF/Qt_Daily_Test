@@ -38,6 +38,6 @@ Release
 */*build-wxclient*/
 node_modules
 
-**/build/
+*/*/build/
 build/
 .user
