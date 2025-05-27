@@ -1,0 +1,59 @@
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+
+    // 1. 添加一个数据库实例
+    QStringList ls = QSqlDatabase::drivers();
+    qDebug() << ls;
+
+    QSqlDatabase db = QSqlDatabase::addDatabase("QOCI");
+    // 2. 得到实例对象之后需要初始化连接信息
+    //    -- 服务器的IP, 端口, 数据库名, 用户名, 密码
+    db.setHostName("110.22.80.130");
+    db.setPort(1521);   // 如果使用的是默认端口, 可以不调用该函数
+    db.setDatabaseName("orcl");
+    db.setUserName("scott");
+    db.setPassword("scott");
+
+    // 3. 连接数据库
+    bool bl = db.open();
+    if(!bl)
+    {
+        qDebug() << db.lastError().text();
+        return;
+    }
+    else
+    {
+        qDebug() << "数据库连接成功了...";
+    }
+
+    QSqlQuery query;
+    // 4. 插入数据
+    QString sql = "insert into dept values(23, '火影忍者', '东京')";
+    // 开启事务
+    db.transaction();
+    bool flag = query.exec(sql);
+    if(flag)
+    {
+        db.commit();
+    }
+    else
+    {
+        db.rollback();
+    }
+
+    // 5. 查询数据表 - dept
+    query.exec("select dname, loc from dept");
+    // 遍历结果集
+    while(query.next())
+    {
+        // 从当前记录中取出各个字段的值
+        qDebug() << query.value(0).toString()
+                 << query.value(1).toString()
+                 << query.value("dname").toString()
+                 << query.value("loc").toString();
+    }
+    db.close();
+}

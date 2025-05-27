@@ -1,0 +1,35 @@
+#OpenBtn[state='normal']{
+image: url(:/res/filedir.png);
+}
+
+#OpenBtn[state='hover']{
+image: url(:/res/filedir_hover.png);
+}
+
+#OpenBtn[state='press']{
+image: url(:/res/filedir_press.png);
+}
+
+#SaveBtn[state='normal']{
+image: url(:/res/contact_list.png);
+}
+
+#SaveBtn[state='hover']{
+image: url(:/res/contact_list_hover.png);
+}
+
+#SaveBtn[state='press']{
+image: url(:/res/contact_list_press.png);
+}
+
+#CloseBtn[state='normal']{
+image: url(:/res/close_search.png);
+}
+
+#CloseBtn[state='hover']{
+image: url(:/res/close_search.png);
+}
+
+#CloseBtn[state='press']{
+image: url(:/res/close_search.png);
+}
