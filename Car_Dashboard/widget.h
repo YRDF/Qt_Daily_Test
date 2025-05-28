@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include<QPainter>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,5 +23,8 @@ protected:
 
 private:
     Ui::Widget *ui;
+    QTimer *timer;
+    int currentvalue;
+    int mark = 0;
 };
 #endif // WIDGET_H

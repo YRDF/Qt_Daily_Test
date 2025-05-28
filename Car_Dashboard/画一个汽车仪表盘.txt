@@ -1,3 +1,4 @@
 要点：
-1.坐标轴旋转: painter.rotate(angle);顺时针旋转给定的角度
+1.坐标轴旋转: painter.rotate(angle);顺时针旋转给定的角度。
+painter.save();保存当前坐标位置painter.restore()回到保存的地方
 2.画的时候因为都是整数所以除的时候会有误差，所以最好使用double类型，整数乘1.0
