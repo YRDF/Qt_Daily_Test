@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include<QPainter>
+#include<QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -17,8 +18,11 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-
+protected:
+    void paintEvent(QPaintEvent *event)override;
 private:
     Ui::Widget *ui;
+    QTimer *timer;
+    int SAngle =0;
 };
 #endif // WIDGET_H
