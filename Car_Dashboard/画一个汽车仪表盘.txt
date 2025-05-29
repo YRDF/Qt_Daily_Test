@@ -1,7 +1,20 @@
-要点：
+知识要点：
 1.坐标轴旋转: painter.rotate(angle);顺时针旋转给定的角度。
 painter.save();保存当前坐标位置painter.restore()回到保存的地方
 2.画的时候因为都是整数所以除的时候会有误差，所以最好使用double类型，整数乘1.0
 3.使用正弦余弦乘半径，计算出偏移的坐标，在偏移后的坐标原点画一个正方形在其中drawtext
 使得每次写的文字或数字都是正向的
 4.Qt中sin，cos 认的是弧度qDegreesToRadians，弧度=度数*3.14/180
+5.drawPolygon画多边形：
+    static const QPointF points[3] = {
+        QPointF(-10.0,0),
+        QPointF(0,-200),
+        QPointF(10.0,0),
+    };
+    painter.drawPolygon(points,3);
+该函数就画了一个三角形，如果是4边形points的参数就是4
+6.QFont fint("华文宋体,30);font.setBold(true);可以设置为粗体
+7.QColor(255,255,255,10)的第4个参数是透明度
+8.可以在矩形中绘制上传的图片,第一个参数是矩形，第二个参数是图片路径：
+    QRect rectangle(-100,radius*0.5,200,60);
+    painter.drawPixmap(rectangle,QPixmap(":/头像.jpg"));

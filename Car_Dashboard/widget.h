@@ -45,7 +45,15 @@ private:
     void drawPointLine(QPainter& painter,int length);
     //画扇形
     void drawSpeedPie(QPainter& painter,int radius);
+    //画内圈
+    void drawEllipseInner(QPainter& painter,int radius);
+    //画一个红色圆圈，之后被黑色遮挡就显示红色光圈了
+    void drawEllipseInnerShine(QPainter& painter,int radius);
+    //外环扇形
+    void drawEllipseOutShine(QPainter& painter,int radius);
     //定时器
     void starSpeed();
+    //画图片
+    void drawLogo(QPainter& painter,int radius);
 };
 #endif // WIDGET_H
