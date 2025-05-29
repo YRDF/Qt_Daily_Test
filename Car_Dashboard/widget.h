@@ -1,9 +1,10 @@
 #ifndef WIDGET_H
 #define WIDGET_H
 
-#include <QWidget>
+#include<QWidget>
 #include<QPainter>
-#include <QTimer>
+#include<QTimer>
+#include<QtMath>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -26,5 +27,25 @@ private:
     QTimer *timer;
     int currentvalue;
     int mark = 0;
+    //旋转一个刻度是多少度
+    double angle = 240.0/60.0;
+    //起始度数
+    int starAngle;
+    //初始化画布
+    void initCanvas(QPainter& painter);
+    //画小圆
+    void drawMiddleCircle(QPainter& painter,int r);
+    //画小圆中的当前速度
+    void drawCurrentSpeed(QPainter& painter);
+    //画刻度
+    void drawScale(QPainter& painter,int radius);
+    //写刻度文字
+    void drawScaleText(QPainter& painter,int radius);
+    //画指针
+    void drawPointLine(QPainter& painter,int length);
+    //画扇形
+    void drawSpeedPie(QPainter& painter,int radius);
+    //定时器
+    void starSpeed();
 };
 #endif // WIDGET_H
