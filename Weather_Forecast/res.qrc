@@ -1,0 +1,73 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/blizzard.png</file>
+        <file>res/blowing _sand.png</file>
+        <file>res/calmness.png</file>
+        <file>res/clear.png</file>
+        <file>res/cloudy.png</file>
+        <file>res/cold.png</file>
+        <file>res/cool_breeze.png</file>
+        <file>res/downpour.png</file>
+        <file>res/drizzle_fine_rain.png</file>
+        <file>res/extraordinary _rainstorm.png</file>
+        <file>res/extreme_rainfall.png</file>
+        <file>res/extremely_thick_ fog.png</file>
+        <file>res/fog.png</file>
+        <file>res/freezing_rain.png</file>
+        <file>res/gentle _breeze.png</file>
+        <file>res/haze.png</file>
+        <file>res/heavt_rain.png</file>
+        <file>res/heavy_fog.png</file>
+        <file>res/heavy_rain-rainstorm.png</file>
+        <file>res/heavy_rainstorm-extremely_heavy_rainstorm.png</file>
+        <file>res/heavy_shower.png</file>
+        <file>res/heavy_snow.png</file>
+        <file>res/heavy_snow-blizzard.png</file>
+        <file>res/high_wind.png</file>
+        <file>res/hot.png</file>
+        <file>res/hurricane.png</file>
+        <file>res/light_rain.png</file>
+        <file>res/light_rain-moderate_rain.png</file>
+        <file>res/light_snow.png</file>
+        <file>res/light_snow-moderate_snow.png</file>
+        <file>res/mist.png</file>
+        <file>res/moderate haze.png</file>
+        <file>res/moderate_rain.png</file>
+        <file>res/moderate_rain-heavy_rain.png</file>
+        <file>res/moderate_snow.png</file>
+        <file>res/moderate_snow-heavy_snow.png</file>
+        <file>res/overcast.png</file>
+        <file>res/partly _cloudy.png</file>
+        <file>res/partly_cloudy.png</file>
+        <file>res/rain.png</file>
+        <file>res/rain_and_snow mixed.png</file>
+        <file>res/rain_shower_andsnow_mixed .png</file>
+        <file>res/rainstorm.png</file>
+        <file>res/rainstorm-downpour.png</file>
+        <file>res/sandstorm.png</file>
+        <file>res/severe_haze.png</file>
+        <file>res/severe_smog.png</file>
+        <file>res/showers.png</file>
+        <file>res/showery_snow.png</file>
+        <file>res/sleet.png</file>
+        <file>res/smog.png</file>
+        <file>res/snow.png</file>
+        <file>res/soft_breeze.png</file>
+        <file>res/strong _sandstorm.png</file>
+        <file>res/strong_gale.png</file>
+        <file>res/strong_thick_fog.png</file>
+        <file>res/strong_thunderstorm.png</file>
+        <file>res/strong_wind.png</file>
+        <file>res/strong_wind-strong_gale.png</file>
+        <file>res/surface_dust.png</file>
+        <file>res/thundershower.png</file>
+        <file>res/thunderstorms_accompanied_by_hail.png</file>
+        <file>res/tornado.png</file>
+        <file>res/tropical _storm.png</file>
+        <file>res/unknown.png</file>
+        <file>res/violent_wind.png</file>
+        <file>res/windiness.png</file>
+        <file>res/windstorm.png</file>
+        <file>style/stylesheet.qss</file>
+    </qresource>
+</RCC>
