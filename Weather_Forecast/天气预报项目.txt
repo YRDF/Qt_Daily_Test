@@ -4,6 +4,7 @@ HTTP通信
 自定义控件绘制温度
 多控件
 代码整合调试能力
+
 1.label的stylesheet设置：
 在设置label结合时，如果设置圆滑边角则可使用：border-radius:7px;
 设置两个label结合可以使用verticalLayout，对2个label的底部和顶部设置：
@@ -15,3 +16,7 @@ HTTP通信
     border-bottom-right-radius:0px;
 但是如果这样设置，两个label结合时无论如何设置verticalLayout的spacing，两个label中都会有空隙
 那么在两个label中设置:margin: -1px;可以避免这种空隙。
+
+2.限制缩小增大窗口并且隐藏Widget自带的title：    
+	setFixedSize(361,597);
+    	setWindowFlag(Qt::FramelessWindowHint);

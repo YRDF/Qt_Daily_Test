@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>375</width>
-    <height>564</height>
+    <width>361</width>
+    <height>597</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,27 +17,18 @@
    <string notr="true">    color:rgb(235, 235, 235);
 	background-color:rgb(0, 0, 0);</string>
   </property>
-  <widget class="QWidget" name="widget" native="true">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>11</x>
-     <y>11</y>
-     <width>361</width>
-     <height>541</height>
+     <x>10</x>
+     <y>0</y>
+     <width>341</width>
+     <height>591</height>
     </rect>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,2,3,0,0,0">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
+   <layout class="QVBoxLayout" name="verticalLayout_28" stretch="1,1,3,3,2">
     <property name="topMargin">
-     <number>0</number>
-    </property>
-    <property name="rightMargin">
-     <number>0</number>
-    </property>
-    <property name="bottomMargin">
-     <number>0</number>
+     <number>5</number>
     </property>
     <item>
      <widget class="QWidget" name="widget_1" native="true">
@@ -1146,8 +1137,8 @@
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
+                  <width>55</width>
+                  <height>55</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -1173,6 +1164,12 @@
               </item>
               <item>
                <widget class="QLabel" name="label_25">
+                <property name="maximumSize">
+                 <size>
+                  <width>55</width>
+                  <height>55</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">    color:rgb(235, 255, 255);
     background-color:rgb(0,0,0);
@@ -1205,8 +1202,8 @@
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
+                  <width>55</width>
+                  <height>55</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -1232,6 +1229,12 @@
               </item>
               <item>
                <widget class="QLabel" name="label_26">
+                <property name="maximumSize">
+                 <size>
+                  <width>55</width>
+                  <height>55</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">    color:rgb(235, 255, 255);
     background-color:rgb(0,0,0);
@@ -1264,8 +1267,8 @@
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
+                  <width>55</width>
+                  <height>55</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -1291,6 +1294,12 @@
               </item>
               <item>
                <widget class="QLabel" name="label_28">
+                <property name="maximumSize">
+                 <size>
+                  <width>55</width>
+                  <height>55</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">    color:rgb(235, 255, 255);
     background-color:rgb(0,0,0);
@@ -1323,8 +1332,8 @@
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
+                  <width>55</width>
+                  <height>55</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -1350,6 +1359,12 @@
               </item>
               <item>
                <widget class="QLabel" name="label_30">
+                <property name="maximumSize">
+                 <size>
+                  <width>55</width>
+                  <height>55</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">    color:rgb(235, 255, 255);
     background-color:rgb(0,0,0);
@@ -1382,8 +1397,8 @@
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
+                  <width>55</width>
+                  <height>55</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -1409,6 +1424,12 @@
               </item>
               <item>
                <widget class="QLabel" name="label_32">
+                <property name="maximumSize">
+                 <size>
+                  <width>55</width>
+                  <height>55</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">    color:rgb(235, 255, 255);
     background-color:rgb(0,0,0);
@@ -1441,8 +1462,8 @@
                 </property>
                 <property name="maximumSize">
                  <size>
-                  <width>16777215</width>
-                  <height>16777215</height>
+                  <width>55</width>
+                  <height>55</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -1468,6 +1489,12 @@
               </item>
               <item>
                <widget class="QLabel" name="label_34">
+                <property name="maximumSize">
+                 <size>
+                  <width>55</width>
+                  <height>55</height>
+                 </size>
+                </property>
                 <property name="styleSheet">
                  <string notr="true">    color:rgb(235, 255, 255);
     background-color:rgb(0,0,0);
@@ -1605,8 +1632,8 @@
      </widget>
     </item>
     <item>
-     <widget class="QWidget" name="widget_8" native="true">
-      <layout class="QVBoxLayout" name="verticalLayout_28">
+     <widget class="QWidget" name="widget_5" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout">
        <property name="spacing">
         <number>0</number>
        </property>
@@ -1623,7 +1650,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QWidget" name="widget_5" native="true">
+        <widget class="QWidget" name="widget_5_1" native="true">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1635,12 +1662,13 @@
   	border-radius:7px;
     border-bottom-left-radius:0px;
     border-bottom-right-radius:0px;
+	margin: -1px;
 </string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QWidget" name="widget_6" native="true">
+        <widget class="QWidget" name="widget_5_2" native="true">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -1651,41 +1679,21 @@
           <string notr="true">    background-color:rgb(107,107,107);
 	border-radius:7px;
 	border-top-left-radius:0px;
-    border-top-right-radius:0px;</string>
+    border-top-right-radius:0px;
+	margin: -1px;</string>
          </property>
         </widget>
        </item>
-      </layout>
-     </widget>
-    </item>
-    <item>
-     <widget class="QWidget" name="widget_9" native="true">
-      <property name="styleSheet">
-       <string notr="true">	background-color:rgb(0, 0, 0);  	
-	border-radius:7px;</string>
-      </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_15">
-       <property name="spacing">
-        <number>0</number>
-       </property>
-       <property name="leftMargin">
-        <number>0</number>
-       </property>
-       <property name="topMargin">
-        <number>0</number>
-       </property>
-       <property name="rightMargin">
-        <number>0</number>
-       </property>
-       <property name="bottomMargin">
-        <number>0</number>
-       </property>
        <item>
-        <widget class="QWidget" name="widget_7" native="true">
+        <widget class="QWidget" name="widget_5_3" native="true">
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">	background-color:rgb(0, 0, 0);  	
+	border-radius:7px;</string>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_14">
+         <layout class="QHBoxLayout" name="horizontalLayout_15">
+          <property name="spacing">
+           <number>0</number>
+          </property>
           <property name="leftMargin">
            <number>0</number>
           </property>
@@ -1699,250 +1707,299 @@
            <number>0</number>
           </property>
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_22">
-            <property name="spacing">
-             <number>0</number>
+           <widget class="QWidget" name="widget_7" native="true">
+            <property name="styleSheet">
+             <string notr="true"/>
             </property>
-            <item>
-             <widget class="QLabel" name="label_7">
-              <property name="styleSheet">
-               <string notr="true">    color:rgb(235, 255, 255);
+            <layout class="QHBoxLayout" name="horizontalLayout_14">
+             <property name="leftMargin">
+              <number>0</number>
+             </property>
+             <property name="topMargin">
+              <number>0</number>
+             </property>
+             <property name="rightMargin">
+              <number>0</number>
+             </property>
+             <property name="bottomMargin">
+              <number>0</number>
+             </property>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_22">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>7</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_7">
+                 <property name="styleSheet">
+                  <string notr="true">    color:rgb(235, 255, 255);
+    background-color:rgb(107,107,107);
+    border-radius:7px;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+	margin: -1px;</string>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_36">
+                 <property name="styleSheet">
+                  <string notr="true">    color:rgb(235, 255, 255);
+    background-color:rgb(107,107,107);
+    border-radius:7px;
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+	margin: -1px;</string>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_23">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>7</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_37">
+                 <property name="styleSheet">
+                  <string notr="true">    color:rgb(235, 255, 255);
+    background-color:rgb(107,107,107);
+    border-radius:7px;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+	margin: -1px;</string>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_38">
+                 <property name="styleSheet">
+                  <string notr="true">    color:rgb(235, 255, 255);
+    background-color:rgb(107,107,107);
+    border-radius:7px;
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+	margin: -1px;</string>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_24">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>7</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_39">
+                 <property name="styleSheet">
+                  <string notr="true">    color:rgb(235, 255, 255);
+    background-color:rgb(107,107,107);
+    border-radius:7px;
+    border-bottom-left-radius:0px;
+    border-bottom-right-radius:0px;
+	margin: -1px;</string>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_40">
+                 <property name="styleSheet">
+                  <string notr="true">    color:rgb(235, 255, 255);
+    background-color:rgb(107,107,107);
+    border-radius:7px;
+    border-top-left-radius:0px;
+    border-top-right-radius:0px;
+	margin: -1px;</string>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_25">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>7</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_41">
+                 <property name="styleSheet">
+                  <string notr="true">    color:rgb(235, 255, 255);
     background-color:rgb(107,107,107);
     border-radius:7px;
     border-bottom-left-radius:0px;
     border-bottom-right-radius:0px;</string>
-              </property>
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_36">
-              <property name="styleSheet">
-               <string notr="true">    color:rgb(235, 255, 255);
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_42">
+                 <property name="styleSheet">
+                  <string notr="true">    color:rgb(235, 255, 255);
     background-color:rgb(107,107,107);
     border-radius:7px;
     border-top-left-radius:0px;
     border-top-right-radius:0px;</string>
-              </property>
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_23">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_37">
-              <property name="styleSheet">
-               <string notr="true">    color:rgb(235, 255, 255);
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_26">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>7</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_43">
+                 <property name="styleSheet">
+                  <string notr="true">    color:rgb(235, 255, 255);
     background-color:rgb(107,107,107);
     border-radius:7px;
     border-bottom-left-radius:0px;
-    border-bottom-right-radius:0px;</string>
-              </property>
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_38">
-              <property name="styleSheet">
-               <string notr="true">    color:rgb(235, 255, 255);
+    border-bottom-right-radius:0px;
+	margin: -1px;</string>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_44">
+                 <property name="styleSheet">
+                  <string notr="true">    color:rgb(235, 255, 255);
     background-color:rgb(107,107,107);
     border-radius:7px;
     border-top-left-radius:0px;
-    border-top-right-radius:0px;</string>
-              </property>
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_24">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_39">
-              <property name="styleSheet">
-               <string notr="true">    color:rgb(235, 255, 255);
+    border-top-right-radius:0px;
+	margin: -1px;</string>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_27">
+               <property name="spacing">
+                <number>0</number>
+               </property>
+               <property name="topMargin">
+                <number>7</number>
+               </property>
+               <item>
+                <widget class="QLabel" name="label_45">
+                 <property name="styleSheet">
+                  <string notr="true">    color:rgb(235, 255, 255);
     background-color:rgb(107,107,107);
     border-radius:7px;
     border-bottom-left-radius:0px;
-    border-bottom-right-radius:0px;</string>
-              </property>
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_40">
-              <property name="styleSheet">
-               <string notr="true">    color:rgb(235, 255, 255);
+    border-bottom-right-radius:0px;
+	margin: -1px;</string>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QLabel" name="label_46">
+                 <property name="styleSheet">
+                  <string notr="true">    color:rgb(235, 255, 255);
     background-color:rgb(107,107,107);
     border-radius:7px;
     border-top-left-radius:0px;
-    border-top-right-radius:0px;</string>
-              </property>
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_25">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_41">
-              <property name="styleSheet">
-               <string notr="true">    color:rgb(235, 255, 255);
-    background-color:rgb(107,107,107);
-    border-radius:7px;
-    border-bottom-left-radius:0px;
-    border-bottom-right-radius:0px;</string>
-              </property>
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_42">
-              <property name="styleSheet">
-               <string notr="true">    color:rgb(235, 255, 255);
-    background-color:rgb(107,107,107);
-    border-radius:7px;
-    border-top-left-radius:0px;
-    border-top-right-radius:0px;</string>
-              </property>
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_26">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_43">
-              <property name="styleSheet">
-               <string notr="true">    color:rgb(235, 255, 255);
-    background-color:rgb(107,107,107);
-    border-radius:7px;
-    border-bottom-left-radius:0px;
-    border-bottom-right-radius:0px;</string>
-              </property>
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_44">
-              <property name="styleSheet">
-               <string notr="true">    color:rgb(235, 255, 255);
-    background-color:rgb(107,107,107);
-    border-radius:7px;
-    border-top-left-radius:0px;
-    border-top-right-radius:0px;</string>
-              </property>
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_27">
-            <property name="spacing">
-             <number>0</number>
-            </property>
-            <item>
-             <widget class="QLabel" name="label_45">
-              <property name="styleSheet">
-               <string notr="true">    color:rgb(235, 255, 255);
-    background-color:rgb(107,107,107);
-    border-radius:7px;
-    border-bottom-left-radius:0px;
-    border-bottom-right-radius:0px;</string>
-              </property>
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_46">
-              <property name="styleSheet">
-               <string notr="true">    color:rgb(235, 255, 255);
-    background-color:rgb(107,107,107);
-    border-radius:7px;
-    border-top-left-radius:0px;
-    border-top-right-radius:0px;</string>
-              </property>
-              <property name="text">
-               <string>TextLabel</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
+    border-top-right-radius:0px;
+	margin: -1px;</string>
+                 </property>
+                 <property name="text">
+                  <string>TextLabel</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
           </item>
          </layout>
         </widget>
