@@ -1,0 +1,15 @@
+{
+    "age": 23,
+    "date0": {
+        "day0": "6-1",
+        "log": 0,
+        "weather": "cloudy"
+    },
+    "hobby": "game",
+    "machine": [
+        "wjqmachine",
+        6657,
+        "upup"
+    ],
+    "name": "zhangsan"
+}

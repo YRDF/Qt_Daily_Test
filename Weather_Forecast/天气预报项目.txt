@@ -29,4 +29,5 @@ HTTP通信
 在Qt6中这两个有可能返回的是QFPoint函数，如果要调用this->move(),返回值要相同。所以要.toPoint()进行转换。
 可以根据这两个位置，依靠鼠标移动和鼠标按下事件，实现按着鼠标移动窗口的功能。
 
-5.Qt的hTTP编程，详见Qt_HTTP_learn
+5.Qt的HTTP编程，详见Qt_HTTP_learn
+6.Qt的JSON数据，详见Qt_JSON_learn

@@ -1,0 +1,41 @@
+QT的JSON编程
+
+1.JSON的数据构建：
+JSON对象内存储的都是键值对。
+QJsonObject	创建json对象：QJsonObject rootJson;	
+QJsonArray	创建json数组，以append()形式尾插数据
+QJsonDocument	将JSON对象转换为JSON文档:QJsonDocument jsonDoc(rootJson);
+将JSON文档转换为Qt字符串（也可以是压缩格式）:
+QByteArray jsonData = jsonDoc.toJson(QJsonDocument::Indented);
+JSON对象可以嵌套对象。
+
+2.JSON的数据解析
+将JSON文件内容解析为UTF-8编码的json文档并从中创建QJsonDocument。
+如果解析成功，返回一个有效的（非空的）QJsonDocument。
+如果失败，返回的文档将为空，并且可选的error变量将包含有关错误的进一步详细信息。
+	QJsonDocument jsDoc = QJsonDocument::fromJson(jsData);
+获取JSON对象
+        	QJsonObject jsonObj = jsDoc.object();
+访问对象的键值
+	QString name = jsonObj["name"].toString();
+ 	int age = jsonObj["age"].toInt();
+ 	QString email = jsonObj["email"].toString();
+
+
+处理JSON数组，
+使用范围for遍历，遍历时使用QJsonValue&代表所有JSON类型
+如果数组中的元素类型不同，可以通过QJsonValue::Type t = value.type();判断：
+        if(jsobj.contains("machine")&&jsobj["machine"].isArray()){
+            QJsonArray myarray = jsobj["machine"].toArray();
+            for(const QJsonValue& value : myarray){
+                QJsonValue::Type t = value.type();
+                switch(t){
+                case QJsonValue::Double:
+                    qDebug()<<QString::number(value.toDouble());
+                    break;
+                case QJsonValue::String:
+                    qDebug()<< value.toString();
+                    break;
+                case QJsonValue::Object:
+                    break;
+                }
