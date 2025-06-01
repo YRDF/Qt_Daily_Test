@@ -70,5 +70,6 @@
         <file>res/windstorm.png</file>
         <file>style/stylesheet.qss</file>
         <file>res/search.png</file>
+        <file>res/close.png</file>
     </qresource>
 </RCC>
