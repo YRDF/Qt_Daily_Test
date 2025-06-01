@@ -20,9 +20,13 @@ HTTP通信
 2.限制缩小增大窗口并且隐藏Widget自带的title：    
 	setFixedSize(361,597);
     	setWindowFlag(Qt::FramelessWindowHint);
+
 3.在QMenu中添加QAction，可以实现快速的action
 一个QAction可以绑定多个触发逻辑(槽函数)，统一管理界面元素的交互。
+
 4.获取当前widget在屏幕中的坐标：qDebug()<<this->pos();
 获取当前鼠标在屏幕中的坐标：qDebug()<<event->globalPosition();
 在Qt6中这两个有可能返回的是QFPoint函数，如果要调用this->move(),返回值要相同。所以要.toPoint()进行转换。
 可以根据这两个位置，依靠鼠标移动和鼠标按下事件，实现按着鼠标移动窗口的功能。
+
+5.Qt的hTTP编程，详见Qt_HTTP_learn

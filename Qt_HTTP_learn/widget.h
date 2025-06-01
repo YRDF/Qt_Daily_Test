@@ -2,13 +2,11 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include <QMouseEvent>
-#include<QDebug>
-#include <QMenu>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 #include <QNetworkReply>
-#include <QMessageBox>
+#include <QDebug>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -23,16 +21,11 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+    QNetworkAccessManager *manager;
+    QNetworkReply *reply;
 public slots:
-    void readHttpReply();
-protected:
-    void mousePressEvent(QMouseEvent *event)override;
-    void mouseMoveEvent(QMouseEvent *event)override;
+    void readmessage();
 private:
     Ui::Widget *ui;
-    QMenu *menuQuit;
-    QPointF movepoint;
-    QNetworkReply *reply;
-    QMessageBox *mbx;
 };
 #endif // WIDGET_H

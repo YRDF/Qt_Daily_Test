@@ -7,7 +7,7 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    setFixedSize(359,598);
+    setFixedSize(369,597);
     setWindowFlag(Qt::FramelessWindowHint);
 
     menuQuit = new QMenu(this);
@@ -18,11 +18,43 @@ Widget::Widget(QWidget *parent)
     connect(menuQuit,&QMenu::triggered,this,[=](){
         this->close();
     });
+
+    QNetworkAccessManager* manager = new QNetworkAccessManager(this);
+    //http://t.weather.itboy.net/api/weather/city/101010100
+    QUrl urlWeather("http://t.weather.itboy.net");
+    QNetworkRequest request(urlWeather);
+    reply = manager->get(request);
+
+    connect(manager,&QNetworkAccessManager::finished,this,[](){
+        qDebug()<<"url request finish";
+    });
+
+    connect(reply,&QNetworkReply::finished,this,&Widget::readHttpReply);
+
+    mbx = new QMessageBox(this);
 }
 
 Widget::~Widget()
 {
     delete ui;
+}
+
+void Widget::readHttpReply()
+{
+    //判断是否返回错误
+    int respCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+    //qDebug()<<"respCode is: "<<respCode;
+    if(reply->error() == QNetworkReply::NoError && respCode==200){
+        QByteArray data = reply->readAll();
+        qDebug()<<QString::fromUtf8(data);
+    }else{
+        mbx->setWindowTitle("错误！");
+        mbx->setText("网络请求失败！");
+        mbx->setStyleSheet("QPushButton{color:white}");
+        mbx->setStandardButtons(QMessageBox::Ok);
+        mbx->exec();
+        qDebug()<<"请求失败！"<<reply->errorString();
+    }
 }
 
 void Widget::mousePressEvent(QMouseEvent *event)
