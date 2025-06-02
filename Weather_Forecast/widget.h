@@ -13,6 +13,8 @@
 #include<QJsonObject>
 #include<QJsonArray>
 #include <QFile>
+#include"citymap.h"
+#include"picmap.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -42,6 +44,8 @@ private:
     QNetworkAccessManager* manager;
     QString StringWeather;
     void parseWeatherJsonData(QByteArray& rawData);
-    QString getCity(QString cityname);
+    //QString getCity(QString cityname);
+    CityMap citymap;
+    PicMap picmap;
 };
 #endif // WIDGET_H

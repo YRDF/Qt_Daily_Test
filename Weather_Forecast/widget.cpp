@@ -7,7 +7,7 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    setFixedSize(349,579);
+    //setFixedSize(349,579);
     setWindowFlag(Qt::FramelessWindowHint);
 
     menuQuit = new QMenu(this);
@@ -98,7 +98,7 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
                 // 在这里添加你的点击处理代码
                 //ui->label_search->setText("已点击!");
                 QString cityNameUser = ui->lineEdit->text();
-                QString city_code = getCity(cityNameUser);
+                QString city_code = citymap.findCity(cityNameUser);
                 if(city_code !=""){
                     StringWeather += "&cityid=" + city_code;
                     qDebug()<<StringWeather;
@@ -139,33 +139,35 @@ void Widget::parseWeatherJsonData(QByteArray &rawData)
         ui->label_tmp_now->setText(currentTemp+"℃");
         ui->label_tmp->setText(jsparseObj["tem2"].toString()+"℃ ~ "
                                +jsparseObj["tem1"].toString()+"℃");
+        ui->label_weather->setText(jsparseObj["wea"].toString());
         ui->label_close_suggest->setText(jsparseObj["air_tips"].toString());
         ui->label_wind_info->setText(jsparseObj["win"].toString());
         ui->label_windy_level->setText(jsparseObj["win_speed"].toString());
         ui->label_pm25_info->setText(jsparseObj["air_pm25"].toString());
         ui->label_humidity_info->setText(jsparseObj["humidity"].toString());
         ui->label_air_quality_info->setText(jsparseObj["air_level"].toString());
+        ui->label->setPixmap(picmap.mTypeMap[jsparseObj["wea"].toString()]);
     }
 
 }
 
-QString Widget::getCity(QString cityname)
-{
-    QFile file(":/citycode.json");
-    file.open(QIODevice::ReadOnly);
-    QByteArray rawData = file.readAll();
-    file.close();
-    QJsonDocument jsDoc = QJsonDocument::fromJson(rawData);
-    if(jsDoc.isArray()){
-        QJsonArray citys = jsDoc.array();
-        for(QJsonValue val:citys){
-            if(val.isObject()){
-                QString city_name = val["city_name"].toString();
-                if(city_name == cityname){
-                    return val["city_code"].toString();
-                }
-            }
-        }
-        return "";
-    }
-}
+// QString Widget::getCity(QString cityname)
+// {
+//     QFile file(":/citycode.json");
+//     file.open(QIODevice::ReadOnly);
+//     QByteArray rawData = file.readAll();
+//     file.close();
+//     QJsonDocument jsDoc = QJsonDocument::fromJson(rawData);
+//     if(jsDoc.isArray()){
+//         QJsonArray citys = jsDoc.array();
+//         for(QJsonValue val:citys){
+//             if(val.isObject()){
+//                 QString city_name = val["city_name"].toString();
+//                 if(city_name == cityname){
+//                     return val["city_code"].toString();
+//                 }
+//             }
+//         }
+//         return "";
+//     }
+// }
