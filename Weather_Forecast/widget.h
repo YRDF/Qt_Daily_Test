@@ -9,6 +9,10 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QMessageBox>
+#include<QJsonDocument>
+#include<QJsonObject>
+#include<QJsonArray>
+#include <QFile>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -24,15 +28,20 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 public slots:
-    void readHttpReply();
+    void readHttpReply(QNetworkReply *reply);
 protected:
     void mousePressEvent(QMouseEvent *event)override;
     void mouseMoveEvent(QMouseEvent *event)override;
+    bool eventFilter(QObject *obj, QEvent *event) override;
 private:
     Ui::Widget *ui;
     QMenu *menuQuit;
     QPointF movepoint;
     QNetworkReply *reply;
     QMessageBox *mbx;
+    QNetworkAccessManager* manager;
+    QString StringWeather;
+    void parseWeatherJsonData(QByteArray& rawData);
+    QString getCity(QString cityname);
 };
 #endif // WIDGET_H

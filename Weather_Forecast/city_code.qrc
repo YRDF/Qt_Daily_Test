@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>city_pinyin.json</file>
+        <file>citycode.json</file>
+    </qresource>
+</RCC>
