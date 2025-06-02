@@ -22,8 +22,8 @@ Widget::Widget(QWidget *parent)
     manager = new QNetworkAccessManager(this);
     //http://t.weather.itboy.net/api/weather/city/101010100
     //http://gfeljm.tianqiapi.com/api?unescape=1&version=v61&appid=83773479&appsecret=MXtXkAd5
-
-    StringWeather = "http://gfeljm.tianqiapi.com/api?unescape=1&version=v61&appid=83773479&appsecret=MXtXkAd5";
+    StringWeather = "http://gfeljm.tianqiapi.com/api?unescape=1&version=v9&appid=83773479&appsecret=MXtXkAd5";
+    //StringWeather = "http://gfeljm.tianqiapi.com/api?unescape=1&version=v61&appid=83773479&appsecret=MXtXkAd5";
     QUrl urlWeather(StringWeather);
     QNetworkRequest request(urlWeather);
     reply = manager->get(request);
@@ -48,8 +48,8 @@ void Widget::readHttpReply(QNetworkReply *reply)
     //qDebug()<<"respCode is: "<<respCode;
     if(reply->error() == QNetworkReply::NoError && respCode==200){
         QByteArray data = reply->readAll();
-        parseWeatherJsonData(data);
-        qDebug()<<QString::fromUtf8(data);
+        parseWeatherJsonDataNew(data);
+        //qDebug()<<QString::fromUtf8(data);
 
     }else{
         mbx->setWindowTitle("错误！");
@@ -149,6 +149,62 @@ void Widget::parseWeatherJsonData(QByteArray &rawData)
         ui->label->setPixmap(picmap.mTypeMap[jsparseObj["wea"].toString()]);
     }
 
+}
+
+void Widget::parseWeatherJsonDataNew(QByteArray &rawData)
+{
+    //bytearray数据转换为json文件
+    QJsonDocument jsparseDoc = QJsonDocument::fromJson(rawData);
+    if(!jsparseDoc.isNull() &&jsparseDoc.isObject()){
+        //json文件转换为jsonobject
+        QJsonObject jsparseObj = jsparseDoc.object();
+        days[0].mCity = jsparseObj["city"].toString();
+        days[0].mPm25 = jsparseObj["aqi"].toObject()["pm25"].toString();
+        if(jsparseObj.contains("data")&&jsparseObj["data"].isArray()){
+            QJsonArray jsarry = jsparseObj["data"].toArray();
+            for(int i =0;i<jsarry.size();i++){
+                QJsonObject obj = jsarry[i].toObject();
+                //qDebug()<<obj["date"].toString()<<obj["wea"].toString();
+                days[i].mData = obj["date"].toString();
+                days[i].mWeek = obj["week"].toString();
+                days[i].mWeaType = obj["wea"].toString();
+                days[i].mTemp = obj["tem"].toString();
+                days[i].mTempLow = obj["tem2"].toString();
+                days[i].mTempHig = obj["tem1"].toString();
+                days[i].mFx = obj["win"].toArray()[0].toString();
+                days[i].mFl = obj["win_speed"].toString();
+                days[i].mAirQ = obj["air_level"].toString();
+                days[i].mTips = obj["air_tips"].toString();
+                days[i].mHuml = obj["humidity"].toString();
+            }
+        }
+    }
+    UpdateUI();
+}
+
+void Widget::UpdateUI()
+{
+    //解析日期
+    ui->label_current_date->setText(days[0].mData+"  "+days[0].mWeek);
+    //解析城市，当前温度，天气风向等其他信息
+    //QString cityName = jsparseObj["city"].toString();
+    //ui->label_city->setText(cityName+"市");
+    QString currentTemp = days[0].mTemp;
+    ui->label_city->setText(days[0].mCity+"市");
+    ui->label_tmp_now->setText(currentTemp+"℃");
+    ui->label_tmp->setText(days[0].mTempLow+"℃ ~ "
+                           +days[0].mTempHig+"℃");
+    ui->label_weather->setText(days[0].mWeaType);
+    ui->label_close_suggest->setText(days[0].mTips);
+    ui->label_wind_info->setText(days[0].mFx);
+    ui->label_windy_level->setText(days[0].mFl);
+    ui->label_pm25_info->setText(days[0].mPm25);
+    ui->label_humidity_info->setText(days[0].mHuml);
+    ui->label_air_quality_info->setText(days[0].mAirQ);
+    ui->label->setPixmap(picmap.mTypeMap[days[0].mWeaType]);
+
+    //修改下方widget的内容
+    ui->label_28->setText(days[3].mWeaType);
 }
 
 // QString Widget::getCity(QString cityname)

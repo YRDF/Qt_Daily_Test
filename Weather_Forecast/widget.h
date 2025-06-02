@@ -15,6 +15,7 @@
 #include <QFile>
 #include"citymap.h"
 #include"picmap.h"
+#include"days.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -27,6 +28,9 @@ class Widget : public QWidget
     Q_OBJECT
 
 public:
+    //存放7个Days的数组
+    Days days[7];
+
     Widget(QWidget *parent = nullptr);
     ~Widget();
 public slots:
@@ -44,8 +48,10 @@ private:
     QNetworkAccessManager* manager;
     QString StringWeather;
     void parseWeatherJsonData(QByteArray& rawData);
+    void parseWeatherJsonDataNew(QByteArray& rawData);
     //QString getCity(QString cityname);
     CityMap citymap;
     PicMap picmap;
+    void UpdateUI();
 };
 #endif // WIDGET_H

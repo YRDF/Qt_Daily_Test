@@ -10,12 +10,14 @@ CONFIG += c++17
 
 SOURCES += \
     citymap.cpp \
+    days.cpp \
     main.cpp \
     picmap.cpp \
     widget.cpp
 
 HEADERS += \
     citymap.h \
+    days.h \
     picmap.h \
     widget.h
 
