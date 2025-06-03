@@ -16,6 +16,8 @@
 #include"citymap.h"
 #include"picmap.h"
 #include"days.h"
+#include<QList>
+#include<QPainter>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -30,6 +32,15 @@ class Widget : public QWidget
 public:
     //存放7个Days的数组
     Days days[7];
+    QList<QLabel *> mDaylist;
+    QList<QLabel *> mDatelist;
+    QList<QLabel *> mWIconlist;
+    QList<QLabel *> mWeatherlist;
+    QList<QLabel *> mQualitylist;
+    QList<QLabel *> mFxlist;
+    QList<QLabel *> mFllist;
+    //初始化这些list
+    void initAllList();
 
     Widget(QWidget *parent = nullptr);
     ~Widget();

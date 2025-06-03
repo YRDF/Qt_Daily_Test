@@ -31,3 +31,7 @@ HTTP通信
 
 5.Qt的HTTP编程，详见Qt_HTTP_learn
 6.Qt的JSON数据，详见Qt_JSON_learn
+7.Qt的json数据解析，显示到label上，可以使用QList存储指向label的指针，然后遍历，进行批量赋值
+8.Qt对QString进行分割，如：使用：
+	QSatringList mylist = Date.split("-")，
+可以把string按照-进行分割，返回的是字符串的列表QStringList类型。使用时使用mylist.at(i);即可取出第i块。

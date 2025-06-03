@@ -35,5 +35,5 @@ PicMap::PicMap() {
     //mTypeMap.insert("中到大雪",":/res/type/ZhongDaoDaXue.png");
     //mTypeMap.insert("中到大雨",":/res/type/ZhongDaoDaYu.png");
     //mTypeMap.insert("中雪",":/res/type/ZhongXue.png");
-    //mTypeMap.insert("中雨",":/res/type/ZhongYu.png");
+    mTypeMap.insert("中雨",":/res/rainstorm.png");
 }

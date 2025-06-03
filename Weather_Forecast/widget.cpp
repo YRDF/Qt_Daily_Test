@@ -2,6 +2,24 @@
 #include "ui_widget.h"
 
 
+void Widget::initAllList()
+{
+    mDaylist<<ui->label_day_0<<ui->label_day_1<<ui->label_day_2<<ui->label_day_3
+             <<ui->label_day_4<<ui->label_day_5;
+    mDatelist<<ui->label_date_0<<ui->label_date_1<<ui->label_date_2<<ui->label_date_3
+              <<ui->label_date_4<<ui->label_date_5;
+    mWIconlist<<ui->label_weather_icon_0<<ui->label_weather_icon_1<<ui->label_weather_icon_2
+               <<ui->label_weather_icon_3<<ui->label_weather_icon_4<<ui->label_weather_icon_5;
+    mWeatherlist<<ui->label_weather_0<<ui->label_weather_1<<ui->label_weather_2<<ui->label_weather_3
+                 <<ui->label_weather_4<<ui->label_weather_5;
+    mQualitylist<<ui->label_quality_0<<ui->label_quality_1<<ui->label_quality_2<<ui->label_quality_3
+                 <<ui->label_quality_4<<ui->label_quality_5;
+    mFxlist<<ui->label_fx_0<<ui->label_fx_1<<ui->label_fx_2<<ui->label_fx_3
+            <<ui->label_fx_4<<ui->label_fx_5;
+    mFllist<<ui->label_fl_0<<ui->label_fl_1<<ui->label_fl_2<<ui->label_fl_3
+            <<ui->label_fl_4<<ui->label_fl_5;
+}
+
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
@@ -9,6 +27,7 @@ Widget::Widget(QWidget *parent)
     ui->setupUi(this);
     //setFixedSize(349,579);
     setWindowFlag(Qt::FramelessWindowHint);
+    initAllList();
 
     menuQuit = new QMenu(this);
     menuQuit->setStyleSheet("QMenu::item {color:pink;border-radius:7px}");
@@ -204,7 +223,46 @@ void Widget::UpdateUI()
     ui->label->setPixmap(picmap.mTypeMap[days[0].mWeaType]);
 
     //修改下方widget的内容
-    ui->label_28->setText(days[3].mWeaType);
+    for(int i =0;i<6;i++){
+        mDaylist[i]->setText(days[i].mWeek);
+        QStringList dayList = days[i].mData.split("-");
+        mDatelist[i]->setText(dayList.at(1)+"-"+dayList.at(2));
+        //如果有转这个字就分割，把转之前的分了
+        if(days[i].mWeaType.contains("转")){
+            QStringList WeatherIconList = days[i].mWeaType.split("转");
+            mWIconlist[i]->setPixmap(picmap.mTypeMap[WeatherIconList.at(0)]);}
+        else{
+            mWIconlist[i]->setPixmap(picmap.mTypeMap[days[i].mWeaType]);
+        }
+
+        QString airQ = days[i].mAirQ;
+        if(airQ == "优"){
+            mQualitylist[i]->setStyleSheet("background-color:rgb(0, 170, 51);color:rgb(235, 255, 255);border-radius:7px");
+            mQualitylist[i]->setText(days[i].mAirQ);
+        }else if(airQ == "良"){
+            mQualitylist[i]->setStyleSheet("background-color:rgb(107,107,107);color:rgb(235, 255, 255);border-radius:7px");
+            mQualitylist[i]->setText(days[i].mAirQ);
+        }else{
+            mQualitylist[i]->setStyleSheet("background-color:rgb(107,107,107);color:rgb(235, 255, 255);border-radius:7px");
+            mQualitylist[i]->setText(days[i].mAirQ);
+        }
+
+        mWeatherlist[i]->setText(days[i].mWeaType);
+
+        mFxlist[i]->setMinimumWidth(width()/6-10);
+        mFxlist[i]->setMaximumWidth(width()/6-10);
+        mFxlist[i]->setText(days[i].mFx);
+
+        //如果有转这个字就分割，把转之前的分了
+        mFllist[i]->setMinimumWidth(width()/6-10);
+        mFllist[i]->setMaximumWidth(width()/6-10);
+        if(days[i].mFl.contains("转")){
+            QStringList FlList = days[i].mFl.split("转");
+            mFllist[i]->setText(FlList.at(0));
+        }else{
+            mFllist[i]->setText(days[i].mFl);
+        }
+    }
 }
 
 // QString Widget::getCity(QString cityname)
