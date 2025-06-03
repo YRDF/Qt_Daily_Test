@@ -52,7 +52,10 @@ Widget::Widget(QWidget *parent)
     //connect(reply,&QNetworkReply::finished,this,&Widget::readHttpReply);
 
     mbx = new QMessageBox(this);
+    //安装事件过滤器
     ui->label_search->installEventFilter(this);
+    ui->widget_5_1->installEventFilter(this);
+    ui->widget_5_2->installEventFilter(this);
 }
 
 Widget::~Widget()
@@ -104,6 +107,14 @@ void Widget::mouseMoveEvent(QMouseEvent *event)
 
 bool Widget::eventFilter(QObject *obj, QEvent *event)
 {
+    //绘制温度曲线
+    if(obj == ui->widget_5_1 && event->type() == QEvent::Paint){
+        drawTempLine();
+    }
+
+    if(obj == ui->widget_5_2 && event->type() == QEvent::Paint){
+        drawTempLinelow();
+    }
     // 检查事件是否来自目标Label
     if (obj == ui->label_search)
     {
@@ -131,10 +142,11 @@ bool Widget::eventFilter(QObject *obj, QEvent *event)
                     qDebug()<<"城市请求失败！";
                     //<<reply->errorString()
                 }
-                return true;  // 表示事件已处理
+                //return true;  // 表示事件已处理
             }
         }
     }
+
 
     // 其他事件交给基类处理
     return QWidget::eventFilter(obj, event);
@@ -201,6 +213,78 @@ void Widget::parseWeatherJsonDataNew(QByteArray &rawData)
     UpdateUI();
 }
 
+void Widget::drawTempLine()
+{
+    QPainter painter(ui->widget_5_1);
+    painter.setPen(Qt::yellow);
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setBrush(Qt::yellow);
+    //先找出6个点
+    QPoint pos[6];
+    //算出6天的平均高温
+    int avg = 0;
+    int sum = 0;
+    for(int i = 0;i<6;i++){
+        sum+=days[i].mTempHig.toInt();
+    }
+    avg = sum/6;
+    //偏移
+    int ofsit = 0;
+    //中间值
+    int middle = ui->widget_5_1->height()/2+10;
+    for(int i = 0;i<6;i++){
+        //x点的坐标是上面控件的x坐标的中间值
+        pos[i].setX(mQualitylist[i]->x() + mQualitylist[i]->width()/2);
+        //y的坐标是宽度的中间值加上偏移值
+        ofsit = (days[i].mTempHig.toInt()-avg)*3;
+        pos[i].setY(middle - ofsit);
+        //先画点
+        painter.drawEllipse(QPoint(pos[i]),2,2);
+        //点上写上温度
+        painter.drawText(QPoint(pos[i].x()-10,pos[i].y()-15),days[i].mTempHig+"°");
+    }
+    //点画线
+    for(int i = 0 ;i<5;i++){
+      painter.drawLine(pos[i],pos[i+1]);
+    }
+}
+
+void Widget::drawTempLinelow()
+{
+    QPainter painter(ui->widget_5_2);
+    painter.setPen(QColor(70,192,203));
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setBrush(QColor(70,192,203));
+    //先找出6个点
+    QPoint pos[6];
+    //算出6天的平均高温
+    int avg = 0;
+    int sum = 0;
+    for(int i = 0;i<6;i++){
+        sum+=days[i].mTempLow.toInt();
+    }
+    avg = sum/6;
+    //偏移
+    int ofsit = 0;
+    //中间值
+    int middle = ui->widget_5_2->height()/2+10;
+    for(int i = 0;i<6;i++){
+        //x点的坐标是上面控件的x坐标的中间值
+        pos[i].setX(mQualitylist[i]->x() + mQualitylist[i]->width()/2);
+        //y的坐标是宽度的中间值加上偏移值
+        ofsit = (days[i].mTempLow.toInt()-avg)*3;
+        pos[i].setY(middle - ofsit);
+        //先画点
+        painter.drawEllipse(QPoint(pos[i]),2,2);
+        //点上写上温度
+        painter.drawText(QPoint(pos[i].x()-10,pos[i].y()-15),days[i].mTempLow+"°");
+    }
+    //点画线
+    for(int i = 0 ;i<5;i++){
+        painter.drawLine(pos[i],pos[i+1]);
+    }
+}
+
 void Widget::UpdateUI()
 {
     //解析日期
@@ -263,6 +347,7 @@ void Widget::UpdateUI()
             mFllist[i]->setText(days[i].mFl);
         }
     }
+    update();
 }
 
 // QString Widget::getCity(QString cityname)
@@ -285,3 +370,5 @@ void Widget::UpdateUI()
 //         return "";
 //     }
 // }
+
+

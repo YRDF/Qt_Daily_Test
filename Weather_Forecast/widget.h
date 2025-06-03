@@ -60,6 +60,8 @@ private:
     QString StringWeather;
     void parseWeatherJsonData(QByteArray& rawData);
     void parseWeatherJsonDataNew(QByteArray& rawData);
+    void drawTempLine();
+    void drawTempLinelow();
     //QString getCity(QString cityname);
     CityMap citymap;
     PicMap picmap;
