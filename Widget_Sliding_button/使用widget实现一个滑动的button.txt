@@ -1,0 +1,2 @@
+使用QPianter的drawRoundedRect函数可以实现左右都是圆的矩形。
+第一个参数是矩形，第二，三个参数是椭圆的x，y。
