@@ -1,2 +1,31 @@
 使用QPianter的drawRoundedRect函数可以实现左右都是圆的矩形。
 第一个参数是矩形，第二，三个参数是椭圆的x，y。
+
+初阶：
+显示2张图片轮换显示：
+进行绘画的重点是找到原点坐标。
+设置一个bool的变量，每次鼠标点击事件触发，该变量取反
+在true和fasle时，设置原点坐标位置不同，使得画的圆位置不同，调用update更新实现
+这样是实现了点击显示2张图片
+
+进阶：
+使用Qt的动画类 QPropertyAnimation：Qt框架中用于实现对象属性动画处理的类
+动画步骤：
+    animation = new QPropertyAnimation(this);
+    //目标对象
+    animation->setTargetObject(this);
+    //起始结束位置
+    animation->setStartValue(height()/2);
+    animation->setEndValue(width()-height()/2);
+    //运动时间
+    animation->setDuration(5000);
+    //启动动画
+    animation->start();
+    //在动画运行时绑定信号和槽函数
+
+修改动画方向：
+animation->setDirection(QAbstractAnimation::Forward);
+animation->setDirection(QAbstractAnimation::Backward);
+
+    //根据曲线设置滑动的过程
+    animation->setEasingCurve(QEasingCurve::InQuad);

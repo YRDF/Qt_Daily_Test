@@ -5,6 +5,8 @@
 #include<QPainter>
 #include<QDebug>
 #include <QMouseEvent>
+#include<QPropertyAnimation>
+
 
 class MySlidBtn : public QWidget
 {
@@ -14,8 +16,24 @@ public:
 protected:
     void paintEvent(QPaintEvent *event)override;
     void mousePressEvent(QMouseEvent *event)override;
-    bool change;
+    void resizeEvent(QResizeEvent *event)override;
+
 signals:
+    void isClicked();
+    void isClickedWithParams(bool);
+private:
+    bool isOff = true;
+    QBrush offBgBrush = Qt::black;
+    QBrush offRbBrush = Qt::red;
+
+    QBrush onBgBrush = Qt::gray;
+    QBrush onRbBrush = Qt::green;
+
+    QString offText = "OFF";
+    QString onText = "ON";
+
+    QPropertyAnimation *animation;
+    int posX = height()/2;
 };
 
 #endif // MYSLIDBTN_H

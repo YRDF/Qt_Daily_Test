@@ -4,40 +4,61 @@
 MySlidBtn::MySlidBtn(QWidget *parent)
     : QWidget{parent}
 {
-    change = true;
+    setFixedSize(60, 80);
+    animation = new QPropertyAnimation(this);
+    animation->setTargetObject(this);
+
+    animation->setStartValue(height()/2);
+    animation->setEndValue(width()-height()/2);
+
+    //根据曲线设置滑动的过程
+    animation->setEasingCurve(QEasingCurve::InQuad);
+
+    animation->setDuration(600);
+
+    connect(animation,&QPropertyAnimation::valueChanged,this,[=](const QVariant &value){
+        posX = value.toInt();
+        update();
+    });
 }
 
 void MySlidBtn::paintEvent(QPaintEvent *event)
 {
-    QPainter mypain(this);
-    mypain.setRenderHint(QPainter::Antialiasing);
-    mypain.setBrush(change?Qt::black:Qt::gray);
-    mypain.setPen(Qt::NoPen);
-    //宽高
-    int Hig = height()/2;
-    int Len = width();
-    mypain.drawRoundedRect(this->rect(),Hig,Hig);
+    QPainter painter(this);
+    painter.setRenderHint(QPainter::Antialiasing);
+    painter.setPen(Qt::NoPen);
+    int radius = height()/2;
+
+    painter.setBrush(isOff?offBgBrush:onBgBrush);
+    painter.drawRoundedRect(this->rect(),radius*0.9,radius*0.9);
 
     //画圆
-    mypain.setBrush(change?Qt::red:Qt::green);
-    mypain.setPen(Qt::NoPen);
-    // 添加尺寸有效性检查 - 关键修复点
-    if (width() <= 0 || height() <= 0) {
-        return; // 避免在无效尺寸下绘制
-    }
-    mypain.drawEllipse(QPoint((change?Hig:Len-Hig),Hig),Hig*0.9,Hig*0.9);
+    QPoint center;
+    center.setX(posX);
+    center.setY(radius);
+    painter.setBrush(isOff?offRbBrush:onRbBrush);
+    painter.drawEllipse(center,radius,radius);
 
-    //写字
-    mypain.setPen(Qt::white);
-    mypain.drawText(this->rect(),Qt::AlignCenter,change?"OFF":"ON");
+    //画字
+    painter.setPen(Qt::white);
+    painter.drawText(this->rect(),Qt::AlignCenter,isOff?offText:onText);
 }
 
 void MySlidBtn::mousePressEvent(QMouseEvent *event)
 {
     if(event->button() == Qt::LeftButton){
-        qDebug()<<"left btn clicked";
-        change = !change;
-        update();
+        isOff? animation->setDirection(QAbstractAnimation::Forward):animation->setDirection(QAbstractAnimation::Backward);
+        animation->start();
+        //qDebug()<<"left btn clicked";
+        emit isClicked();
+        isClickedWithParams(isOff);
+        isOff = !isOff;
     }
     QWidget::mousePressEvent(event);
+}
+
+void MySlidBtn::resizeEvent(QResizeEvent *event)
+{
+    animation->setStartValue(height()/2);
+    animation->setEndValue(width()-height()/2);
 }
