@@ -1,0 +1,11 @@
+INCLUDEPATH += $$PWD/ffmpeg_qt_use/include
+
+
+LIBS += $$PWD/ffmpeg_qt_use/lib/avcodec.lib\
+        $$PWD/ffmpeg_qt_use/lib/avdevice.lib\
+        $$PWD/ffmpeg_qt_use/lib/avfilter.lib\
+        $$PWD/ffmpeg_qt_use/lib/avformat.lib\
+        $$PWD/ffmpeg_qt_use/lib/avutil.lib\
+        $$PWD/ffmpeg_qt_use/lib/postproc.lib\
+        $$PWD/ffmpeg_qt_use/lib/swresample.lib\
+        $$PWD/ffmpeg_qt_use/lib/swscale.lib

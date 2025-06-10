@@ -1,0 +1,16 @@
+子线程录制，主线程按钮控制子线程
+
+如果子线程有while循环，那么使用信号与槽可能无法传递信息。
+因此我们要直接使用实例化的子线程，调用子线程的函数修改子线程中while循环中的条件。
+
+   QThread *t1 = new QThread();
+    audiothread *ad = new audiothread();
+    ad->moveToThread(t1);
+
+
+    connect(ui->stopBtn,&QPushButton::clicked,this,[=](){
+        ad->setStopBool(true);
+        qDebug()<<"stoprecoding";
+    });
+
+如在这个connect中，就直接使用了ad，在主线程调用子线程的函数强制修改了bool值，使得子线程循环结束。
