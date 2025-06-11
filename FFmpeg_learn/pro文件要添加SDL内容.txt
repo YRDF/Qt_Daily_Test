@@ -1,0 +1,5 @@
+INCLUDEPATH += G:\cppsoft\SDL\SDL2-2.32.8\x86_64-w64-mingw32\include
+
+LIBS += G:\cppsoft\SDL\SDL2-2.32.8\x86_64-w64-mingw32\bin\SDL2.dll
+
+提示找不到sdl2.dll，sdl2.dll文件放入debug文件中就好了

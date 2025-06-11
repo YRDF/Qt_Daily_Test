@@ -22,26 +22,41 @@ Widget::Widget(QWidget *parent)
     //3.打开输入设备
     //4.采集数据
     //5.关闭设备，关闭文件，回收格式上下的堆区空间
-    QThread *t1 = new QThread();
-    audiothread *ad = new audiothread();
+    t1 = new QThread();
+    ad = new audiothread();
     ad->moveToThread(t1);
 
     t1->start();
+
+
+
     connect(ui->pushButton,&QPushButton::clicked,ad,&audiothread::audioOperater);
     connect(t1, &QThread::finished, ad, &QObject::deleteLater);
     connect(t1, &QThread::finished, t1, &QObject::deleteLater);
     qDebug()<<"this main thread is : "<<QThread::currentThreadId();
 
     connect(ui->stopBtn,&QPushButton::clicked,this,[=](){
-        ad->setStopBool(true);
-        qDebug()<<"stoprecoding";
-
-        t1->exit();
-        t1->wait();
+        stopRecoding = !stopRecoding;
+        ad->setStopBool(stopRecoding);
+        qDebug()<<"stoprecoding"<<stopRecoding;
     });
+
+
+    t2 = new QThread();
+    ap = new audioPlay();
+    ap->moveToThread(t2);
+    connect(t2, &QThread::started, ap, &audioPlay::sdl2Play);
 }
 
 Widget::~Widget()
 {
+    t1->exit();
+    t1->wait();
     delete ui;
 }
+
+void Widget::on_audio_play_btn_clicked()
+{
+    t2->start();
+}
+

@@ -6,6 +6,7 @@
 #include<QDebug>
 #include<QThread>
 #include"audiothread.h"
+#include"audioPlay.h"
 
 extern "C"
 {
@@ -34,8 +35,15 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
+private slots:
+    void on_audio_play_btn_clicked();
+
 private:
     Ui::Widget *ui;
     bool stopRecoding = false;
+    QThread *t1;
+    QThread *t2;
+    audiothread *ad;
+    audioPlay * ap;
 };
 #endif // WIDGET_H
