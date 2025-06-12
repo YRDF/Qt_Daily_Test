@@ -39,6 +39,8 @@ private:
     int frame_count = 0;
 
 signals:
+    void screenShootFinish(); // 完成截图进行清除
+    void sig_GetOneFrame(QImage); //每获取到一帧图像，就发送此信号
 };
 
 #endif // SCREENSHOTTHREAD_H

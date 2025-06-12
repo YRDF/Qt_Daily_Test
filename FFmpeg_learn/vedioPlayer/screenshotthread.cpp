@@ -125,8 +125,10 @@ int screenshotThread::screenShot()
             }
         }
         //释放 AVPacket 的内容。
+        if (frame_count >= 50) break;
         av_packet_unref(pPacket);
     }
+    emit screenShootFinish();
     return 0;
 }
 
@@ -147,6 +149,10 @@ void screenshotThread::SaveFrameWithQt(AVFrame *frame, int width, int height, in
     // 3. 保存为 PNG 文件
     QString filename = QString("frame%1.png").arg(index, 4, 10, QLatin1Char('0'));
     image.save(filename, "PNG");
+
+    //发送到主线程进行显示
+    emit sig_GetOneFrame(image);
+
 }
 
 screenshotThread::~screenshotThread()
