@@ -1,0 +1,4 @@
+播放时，需要初始化SDL_AudioSpec结构体
+打开音频设备之后，会一直调用SDL_AudioSpec的回调函数
+
+这个回调函数 _audioCallback 是 SDL 音频系统的核心部分，它负责在音频设备需要数据时填充音频缓冲区

@@ -4,21 +4,22 @@ audioPlay::audioPlay(QObject *parent)
     : QObject{parent}
 {}
 
-int bufferLen;
-char* bbufferData;
+int bufferLen;          // 全局变量：剩余待处理的音频数据长度
+char* bbufferData;      // 全局变量：指向当前音频数据位置的指针
 
 void _audioCallback(void *userdata, Uint8 * stream,
                                  int len){
+    // 1. 清空目标音频缓冲区（设置为静音）
     SDL_memset(stream,0,len);
     if(bufferLen ==0){
         return;
     }
-    //获取一下len
-    len = (len>bufferLen)?bufferLen:len;
-    //填充数据buffer
+    // 3. 计算实际需要复制的数据量
+    len = (len>bufferLen)?bufferLen:len;        // 避免复制超过可用数据量
+    // 4. 将音频数据混合到输出流
     SDL_MixAudio(stream,(Uint8*)bbufferData,len,SDL_MIX_MAXVOLUME);
 
-    //数据的指针偏移
+    // 5. 更新指针和剩余数据长度
     bbufferData += len;
     bufferLen -= len;
 }
